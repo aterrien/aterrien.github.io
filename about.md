@@ -12,7 +12,7 @@ permalink: /about/index.html
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>Unity3D</li>
+	<li>Git</li>
 	<li>OpenCV</li>
 	<li>C++, C, Python, C#.NET, MATLAB (proficient)</li>
 	<li>Git</li>

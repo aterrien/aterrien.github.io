@@ -1,5 +1,5 @@
 ---
-title: "Scrut! picture zoom for mobile wep app (beta)"
+title: "Scrut (beta)"
 layout: post
 date: 2016-04-13 22:10
 tag:

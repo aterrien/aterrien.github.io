@@ -1,6 +1,6 @@
 # main text of home
 name: Anthony Terrien
-bio: 'Rennes, Fr'
+bio: 'small projects'
 
 # if it's an external image, update below for true
 external-image: false
@@ -50,7 +50,7 @@ width: normal
 projects: true
 
 # if you don't need "about" or "blog", comment them out below
-about: true
+# about: true
 blog: false
 
 # do you want to show the "read time" of the posts?
