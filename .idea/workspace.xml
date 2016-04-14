@@ -54,11 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015-02-24-knob.markdown" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2015-02-24-knob.markdown" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2015-02-24-knob.markdown">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39473686">
+            <state vertical-scroll-proportion="-3.0555556">
               <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2016-01-23-kontrol.markdown" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2016-01-23-kontrol.markdown">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.3707865">
+              <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -132,7 +142,6 @@
       <list>
         <option value="$PROJECT_DIR$/_posts/2015-02-24-markdown-extra-components.markdown" />
         <option value="$PROJECT_DIR$/_posts/2016-02-24-markdown-common-elements.markdown" />
-        <option value="$PROJECT_DIR$/_posts/2016-01-23-jquery-kontrol.markdown" />
         <option value="$PROJECT_DIR$/_posts/2016-01-23-forp-php-profiler.markdown" />
         <option value="$PROJECT_DIR$/_includes/header.html" />
         <option value="$PROJECT_DIR$/_posts/2015-02-24-jquery-knob.markdown" />
@@ -144,6 +153,7 @@
         <option value="$PROJECT_DIR$/_site/knob/jquery.knob.min.js" />
         <option value="$PROJECT_DIR$/_site/knob/jquery-knob-demo.html" />
         <option value="$PROJECT_DIR$/_posts/2015-02-24-knob.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2016-01-23-jquery-kontrol.markdown" />
       </list>
     </option>
   </component>
@@ -409,14 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2016-01-23-jquery-kontrol.markdown">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7777777">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -535,8 +537,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-02-24-knob.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39473686">
+        <state vertical-scroll-proportion="-3.0555556">
           <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2016-01-23-kontrol.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3707865">
+          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
           <folding />
         </state>
       </provider>
