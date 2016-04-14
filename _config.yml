@@ -1,12 +1,13 @@
-name: Phat Nguyen
-bio: 'A magician who turns coffee into codes'
-picture: 'assets/images/mybio.jpg'
-
-url: http://npvinhphat.github.io
-# url: http://localhost:3000
+# main text of home
+name: Anthony Terrien
+bio: 'Rennes, Fr'
 
 # if it's an external image, update below for true
 external-image: false
+picture: 'assets/images/profile.jpg'
+
+url: http://aterrien.github.io
+# your url: http://USERNAME.github.io
 
 permalink: /:title/
 
@@ -14,25 +15,27 @@ markdown: kramdown
 highlighter: rouge
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'UA-3008949-6'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
 # analytics-piwik-id: 1
 
+# if you don't want comments in your posts, set to false
+#disqus: mydisqus
+
 # if you don't have any of social below, comment the line
-disqus: npvinhphatgithubio
-facebook: NPVPhat
-twitter: npvinhphat
+#facebook: myfacebook
+#twitter: mytwitter
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-# linkedin: mylinkedin
-# youtube: myyoutube
-# spotify: myspotify
-# github: npvinhphat
-# medium: medium
-email: npvinhphat@gmail.com
+linkedin: https://www.linkedin.com/in/anthony-terrien-13031023
+#youtube: myyoutube
+#spotify: myspotify
+github: https://github.com/aterrien
+#medium: medium
+email: contactfromweb@anthonyterrien.com
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
@@ -48,7 +51,7 @@ projects: true
 
 # if you don't need "about" or "blog", comment them out below
 about: true
-blog: true
+blog: false
 
 # do you want to show the "read time" of the posts?
 read-time: true
