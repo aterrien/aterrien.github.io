@@ -15,10 +15,10 @@
 
         {% include social-links.html %}
     </header>
-
-    <section style="height: 100px">
-        <script async type="text/javascript" src="//cdn.adpacks.com/adpacks.js?zoneid=1386&serve=C6SI42Y&placement=anthonyterrien" id="_adpacks_js"></script>
-    </section>
 {% endif %}
 
 {% include nav.html %}
+
+{% if showHeader == true %}
+{% include ads.html %}
+{% endif %}
