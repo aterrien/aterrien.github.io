@@ -6,3 +6,4 @@ npm-debug.log
 .bundle
 _site
 tmp
+.idea
