@@ -1,10 +1,10 @@
 # main text of home
-name: Anthony Terrien
+name: aterrien
 bio: 'small projects'
 
 # if it's an external image, update below for true
 external-image: false
-picture: 'assets/images/profile.jpg'
+picture: 'assets/images/profile.png'
 
 url: http://aterrien.github.io
 # your url: http://USERNAME.github.io
