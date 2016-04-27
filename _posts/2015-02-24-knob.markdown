@@ -14,8 +14,6 @@ description: "Nice, downward compatible, touchable, jQuery dial."
 
 [Demo](/demo/knob/)
 
-![Screenshot](http://anthonyterrien.com/img/knob1.png){: class="bigger-image" }
-
 jQuery Knob
 =============
 
