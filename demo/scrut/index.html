@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Knob demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+        <script src="js/jquery.knob.js"></script>
+        <style>
+            body{
+              padding: 0;
+              margin: 0px 50px;
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              text-rendering: optimizelegibility;
+            }
+            p{font-size: 30px; line-height: 30px}
+            div.demo{text-align: center; width: 280px; float: left}
+            div.demo > p{font-size: 20px}
+
+            img {
+                -webkit-transform: translateZ( 0 );
+                transform: translateZ( 0 );
+                -webkit-transition: -webkit-transform 0.1s ease-in-out;
+                transition: transform 0.1s ease-in-out;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width:100%;font-size:40px;letter-spacing:-8px;line-height:40px;">
+            <h1>Scrut !</h1>
+        </div>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <img src="secretplan.jpg" class="scrut" alt="The Hudsucker Proxy (1994) with Tim Robbins" style="width:100%">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <img src="pia.jpg" class="scrut" alt="NASA/JPL-Caltech/Cornell/Arizona State Univ." style="width:100%">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <img src="hulahoop.jpg" class="scrut" style="width:100%">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <img src="cathulahoop.png" class="scrut" alt="Hula hoop family" style="width:100%">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+    </body>
+        <script>
+
+/*// Listen for orientation changes
+window.addEventListener("resize", function() {
+  // Announce the new orientation number
+  console.log(window.orientation);
+}, false);*/
+
+        var Scrut = function(element, caption, options) {
+            this.container = null;
+            this.originalElement = element;
+            this.element = null;
+            this.listener = null;
+            this.caption = caption || null;
+            this.isStopTouch = false;
+            this.orientation = null;
+
+            this.options = {
+                breakpoint: 15
+            }
+        };
+
+        Scrut.ORIENTATION_LANDSCAPE = 0;
+        Scrut.ORIENTATION_PORTRAIT = 1;
+
+        Scrut.prototype = {
+            initContainer: function() {
+                var _this = this;
+
+                this.element = this.originalElement.cloneNode();
+                //this.element.setAttribute('style', 'transform:translateZ(0);');
+                this.element.addEventListener('touchstart', function(event) {
+                    _this.pause();
+                    _this.isStopTouch = true;
+                    window.setTimeout(function() {
+                        _this.isStopTouch = false;
+                    }, 100);
+                }, false);
+                this.element.addEventListener('touchend', function(event) {
+                    if(_this.isStopTouch) {
+                        event.preventDefault();
+                        _this.stop();
+                        return;
+                    }
+                    //_this.play();
+                }, false);
+
+                this.container = document.createElement('figure');
+                this.container.setAttribute('style', 'position:fixed;top:0px;bottom:0px;left:0px;right:0px;padding:0px;margin:0px;overflow:scroll;');
+                this.container.appendChild(this.element);
+
+                if(this.caption !== null) {
+                    var caption = document.createElement('figcaption'),
+                        text = document.createTextNode(this.caption);
+
+                    caption.setAttribute('style', 'position:fixed;margin:30px;bottom:0px;font-size:2.5em;color:#EEEEEE');
+                    caption.appendChild(text);
+                    this.container.appendChild(caption);
+                }
+
+                document.body.appendChild(this.container);
+            },
+            getWindowWidth: function() {
+                return window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            },
+            getWindowHeight: function() {
+                return window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+            },
+            expand: function() {
+                var windowWidth = this.getWindowWidth(),
+                    windowHeight = this.getWindowHeight();
+                    element = this.element;
+
+                element.style.position = "absolute";
+
+                if(windowHeight >= windowWidth) {
+                    // portrait
+                    this.orientation = Scrut.ORIENTATION_PORTRAIT;
+                    element.style.height = windowHeight + "px";
+                    element.style.width = "auto";
+                    element.style.bottom = "0";
+                    element.style.top = "0";
+                
+                    var t =  (windowWidth / 2) - (element.width / 2);
+                    this.container.scrollLeft -= t; 
+                    //element.style.left = t + "px"
+                } else {
+                    // landscape
+                    this.orientation = Scrut.ORIENTATION_LANDSCAPE;
+                    element.style.height = "auto";
+                    element.style.width = windowWidth + "px";
+                    element.style.left = "0";
+                    element.style.right = "0";
+
+                    var t =  (windowHeight / 2) - (element.height / 2);
+                    this.container.scrollTop -= t; 
+                }
+
+            },
+            play: function() {
+                var _this = this;
+                this.listener = function(event) {
+                    requestAnimationFrame(function() {_this.handleOrientation.apply(_this, [event]);});
+                };
+                window.addEventListener(
+                    "deviceorientation", 
+                    this.listener, 
+                    false
+                );
+            },
+            pause: function() {
+                window.removeEventListener("deviceorientation", this.listener, false);
+            },
+            stop: function() {
+                this.pause();
+                this.container.remove();
+            },
+            handleOrientation: function(event) {
+                var gamma = event.gamma,
+                    windowWidth = this.getWindowWidth(),
+                    windowHeight = this.getWindowHeight();
+
+                if(windowHeight >= windowWidth) {
+
+                    // handle changing orientation
+                    if(this.orientation === Scrut.ORIENTATION_LANDSCAPE) {
+                        this.expand();
+                    }
+
+                    var diff = windowWidth - element.width,
+                        left =  (diff / 2); // deg
+
+                    var t =  (left) + (gamma * ((element.width - windowWidth) / 2) / this.options.breakpoint);
+
+                    if(t > 0 || t < diff) {
+                        return;
+                    }
+
+                    //var t =  (gamma * ((element.width - windowWidth) / 2) / this.options.breakpoint);
+                    //element.style.transform = "translateX(" + (-t) + "px)";
+
+                    this.container.scrollLeft = -t;
+                    //element.style.left = t + "px"
+                } else {
+
+                    // handle changing orientation
+                    if(this.orientation === Scrut.ORIENTATION_PORTRAIT) {
+                        this.expand();
+                    }
+
+                    gamma = gamma - 45;
+
+                    var diff = windowHeight - element.height,
+                        left =  (diff / 2); // deg
+
+                    var t =  (left) + (gamma * ((element.height - windowHeight) / 2) / this.options.breakpoint);
+
+                    if(t > 0 || t < diff) {
+                        return;
+                    }
+
+                    this.container.scrollTop = -t;
+                }
+            },
+            start: function() {
+                if(window.DeviceOrientationEvent) {
+                    this.initContainer();
+                    this.expand();
+                    this.play();
+                } else {
+                    console.warn('DeviceOrientationEvent not supported');
+                }
+            }
+        };
+
+        $('.scrut').on(
+            'click',
+            function(e) {
+                var effect = new Scrut($(this)[0], $(this).attr('alt'));
+                effect.start();
+            }
+        );
+
+        </script>
+</html>
